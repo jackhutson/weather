@@ -1,14 +1,16 @@
 import { useRouter } from 'next/router';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 function Index(): JSX.Element {
   const router = useRouter();
+
   const [zipcode, setZipcode] = useState('');
   const [showValidation, setShowValidation] = useState(false);
   const regex = useMemo(() => /^\d{5}(?:[-\s]\d{4})?$/, []);
 
   const handleGetForecast = useCallback(() => {
     if (zipcode && regex.test(zipcode)) {
+      localStorage.setItem('zipcode', zipcode);
       router.push(`/forecast?zipcode=${zipcode}`);
     } else {
       setShowValidation(true);
@@ -25,6 +27,13 @@ function Index(): JSX.Element {
     [setZipcode, regex, showValidation]
   );
 
+  useEffect(() => {
+    const zip = localStorage.getItem('zipcode');
+    if (zip) {
+          setZipcode(zip);  
+    }
+  }, [setZipcode]);
+
   return (
     <div className="mt-8 p-10 bg-gradient-to-r from-sky-500 to-indigo-500 xl:col-start-5 xl:col-end-9 lg:col-start-4 lg:col-end-10 md:col-start-3 md:col-end-11 sm:col-span-full rounded-sm">
       <div className="grid grid-cols-5 col-span-full">
@@ -32,6 +41,7 @@ function Index(): JSX.Element {
           id="zip"
           name="zip"
           type="text"
+          value={zipcode}
           onChange={onZipcodeChange}
           className="px-4 py-1 rounded-sm col-start-1 col-end-6 mt-4 text-black"
         />
