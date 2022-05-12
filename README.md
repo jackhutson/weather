@@ -1,6 +1,6 @@
 # Weather App
 
-This application uses a nextjs client served by a go gin web server which retrieves hourly forecasts from the national weather service API based on ZipCode.
+This application uses a nextjs client served by a go gin web server which retrieves hourly forecasts from the national weather service API based on provided US ZipCode.
 
 ## Configuration
 
