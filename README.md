@@ -1,6 +1,10 @@
 # Weather App
 
-This application uses a nextjs client served by a go gin web server which retrieves hourly forecasts from the national weather service API based on provided US ZipCode.
+This application uses a nextjs client served by a go gin web server which retrieves hourly forecasts from the national weather service API based on provided US ZipCode.  
+
+On the backend the google maps api is used to retrieve the latitude and longitude of the provided zipcode in order to be able to retrieve the weather data from the national weather service api via the NOAA go library.  
+
+Nextjs was selected for comfortable static rendering of the application which can easily be served as a static asset from the gin web server.  FontAwesome for icons, and Tailwindcss to speed up styling of application and add some semblance of responsive design but needs refinement. SWR is a great little hook library that I used to handling retrieving data from the API, this is not the best showcase of it's capabilities because weather data doesn't change very frequently so I plan to try it elsewhere with more dynamic data.
 
 ## Configuration
 
@@ -47,7 +51,7 @@ Gin server will be running on localhost:8080.
 ### Frontend
 
 - TypeScript
-- Nextjs (<https://github.com/vercel/next.js>)
+- Reactjs / Nextjs (<https://github.com/vercel/next.js>)
 - Tailwindcss (<https://github.com/tailwindlabs/tailwindcss>)
 - useSWR (<https://github.com/vercel/swr>)
 - FontAwesome Icons (<https://github.com/FortAwesome/Font-Awesome>)
