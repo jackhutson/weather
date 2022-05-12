@@ -22,7 +22,7 @@ function Forecast(): JSX.Element {
   const { data, error } = useSWR(`/api/forecast?zipcode=${zipcode}`, fetcher, {
     refreshInterval: 10000,
   });
-  
+
   return (
     <div className="mt-8 p-10 bg-gradient-to-r from-sky-500 to-indigo-500 xl:col-start-5 xl:col-end-9 lg:col-start-4 lg:col-end-10 md:col-start-3 md:col-end-11 sm:col-span-full rounded-sm">
       <h2 className="col-span-full text-center mb-6 text-2xl">
@@ -36,7 +36,8 @@ function Forecast(): JSX.Element {
         </div>
         {error && (
           <div className="mt-6 p-1 bg-red-200 text-red-900 rounded-sm col-span-full my-4">
-            Error fetching forecast: <strong>{error.message}</strong>  Try going back and searching again.
+            Error fetching forecast: <strong>{error.message}</strong> Try going
+            back and searching again.
           </div>
         )}
         {!error && !data && <p>Loading ...</p>}

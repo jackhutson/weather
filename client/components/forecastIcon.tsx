@@ -25,7 +25,10 @@ export const ForecastIcon: FC<ForecastIconProps> = (
   const { shortForecast, isDaytime } = props;
   return (
     <>
-      <FontAwesomeIcon icon={getIcon(shortForecast, isDaytime)} style={{ fontSize: '80px' }}/>
+      <FontAwesomeIcon
+        icon={getIcon(shortForecast, isDaytime)}
+        style={{ fontSize: '80px' }}
+      />
     </>
   );
 };
@@ -39,7 +42,7 @@ const getIcon = (shortForecast: string, isDay: boolean): IconDefinition => {
   const isThunderstorm = ifThunderstorm(shortForecast);
   const isMostly = ifMostly(shortForecast);
 
-  if (isSunny || isClear && !isRainy && !isCloudy && !isThunderstorm) {
+  if (isSunny || (isClear && !isRainy && !isCloudy && !isThunderstorm)) {
     if (isMostly) {
       return isDay ? faCloudSun : faCloudMoon;
     } else {
@@ -47,13 +50,13 @@ const getIcon = (shortForecast: string, isDay: boolean): IconDefinition => {
     }
   } else if (isRainy || isShower) {
     if (isThunderstorm) {
-      return faCloudBolt
-    } else if (isRainy){
+      return faCloudBolt;
+    } else if (isRainy) {
       return isDay ? faCloudSunRain : faCloudMoonRain;
     } else if (isShower) {
-      return faCloudShowersHeavy
+      return faCloudShowersHeavy;
     }
-  } 
+  }
 
   return faCloud;
 };
@@ -64,7 +67,8 @@ const findIfSunny = (shortForecast: string): boolean =>
 const ifRainy = (shortForecast: string): boolean =>
   new RegExp(/\bRain/).test(shortForecast);
 
-const ifShower = (shortForecast: string): boolean => new RegExp(/\bShower/).test(shortForecast);
+const ifShower = (shortForecast: string): boolean =>
+  new RegExp(/\bShower/).test(shortForecast);
 
 const ifCloudy = (shortForecast: string): boolean =>
   new RegExp(/\bCloud/).test(shortForecast);

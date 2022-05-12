@@ -8,7 +8,9 @@ export type ForecastPeriodProps = {
   period: Period | null;
 };
 
-export const ForecastPeriod: FC<ForecastPeriodProps> = (props: ForecastPeriodProps) => {
+export const ForecastPeriod: FC<ForecastPeriodProps> = (
+  props: ForecastPeriodProps
+) => {
   const { period } = props;
   return (
     <>
@@ -49,13 +51,29 @@ export const ForecastPeriod: FC<ForecastPeriodProps> = (props: ForecastPeriodPro
       )}
     </>
   );
-}
+};
 
-const getTimeFrame = (startTime: string, endTime: string): string  => {
+const getTimeFrame = (startTime: string, endTime: string): string => {
   const startDate = new Date(startTime);
   const endDate = new Date(endTime);
 
-  const from = `${startDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} ${startDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' })}`;
-  const to = `${endDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} ${endDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' })}`;
+  const from = `${startDate.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })} ${startDate.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+  })}`;
+  const to = `${endDate.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })} ${endDate.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+  })}`;
   return `From ${from} until ${to}`;
-}
+};

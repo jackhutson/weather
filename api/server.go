@@ -18,14 +18,6 @@ type WeatherQueryParams struct {
 }
 
 func Start() {
-	// set port from env, if not set, use default
-	var port string
-	port = os.Getenv("PORT")
-
-	if port == "" {
-		port = "8080"
-	}
-
 	r := gin.Default()
 	// handle api route group
 	r.Use(static.Serve("/", static.LocalFile("./client/dist", true)))
@@ -36,7 +28,7 @@ func Start() {
 	r.NoRoute(func(c *gin.Context) { c.JSON(http.StatusNotFound, gin.H{}) })
 
 	// listen and serve on port
-	r.Run(port)
+	r.Run(":8080")
 }
 
 func getForecastApi(c *gin.Context) {

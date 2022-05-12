@@ -4,6 +4,11 @@ This application uses a nextjs client served by a go gin web server which retrie
 
 ## Configuration
 
+### Requires
+
+- go v1.18
+- Node v16.13.0
+
 You'll need to create a `.env` file in the root directory of the project with the following variables:
 
 - `'GOOGLE_API_KEY'`

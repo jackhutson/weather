@@ -16,7 +16,7 @@ export const ForecastWind: FC<ForecastWindProps> = (
 ) => {
   return (
     <div>
-      <FontAwesomeIcon icon={faWind} fontSize="28" className='mr-4'/>
+      <FontAwesomeIcon icon={faWind} fontSize="28" className="mr-4" />
       Wind moving {getWindDirection(props.windDirection)} at around{' '}
       {props.windSpeed}
     </div>
