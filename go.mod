@@ -9,7 +9,6 @@ require (
 
 require (
 	github.com/google/uuid v1.1.1 // indirect
-	github.com/kr/text v0.1.0 // indirect
 	go.opencensus.io v0.22.3 // indirect
 	golang.org/x/time v0.0.0-20200416051211-89c76fbcd5d1 // indirect
 )
@@ -23,7 +22,6 @@ require (
 	github.com/golang/protobuf v1.3.3 // indirect
 	github.com/icodealot/noaa v0.0.0-20220308184326-d035e0da3fef
 	github.com/json-iterator/go v1.1.9 // indirect
-	github.com/kr/pretty v0.2.0
 	github.com/leodido/go-urn v1.2.0 // indirect
 	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
