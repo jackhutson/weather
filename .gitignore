@@ -1,2 +1,16 @@
 # ignore environment variables to avoid bringing API keys
 .env
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go workspace file
+go.work 
+
+# Test binary, built with `go test -c`
+*.test
+
