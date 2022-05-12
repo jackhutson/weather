@@ -9,6 +9,10 @@ import Period from '../models/period';
 async function fetcher(url: string): Promise<Period[]> {
   const resp = await fetch(url);
 
+  if (resp.status !== 200) {
+    throw new Error(`Failed to fetch ${url}`);
+  }
+
   return await resp.json();
 }
 
@@ -31,9 +35,9 @@ function Forecast(): JSX.Element {
           </Link>
         </div>
         {error && (
-          <p>
-            Error fetching forecast: <strong>{error}</strong>
-          </p>
+          <div className="mt-6 p-1 bg-red-200 text-red-900 rounded-sm col-span-full my-4">
+            Error fetching forecast: <strong>{error.message}</strong>  Try going back and searching again.
+          </div>
         )}
         {!error && !data && <p>Loading ...</p>}
         {!error && data && <ForecastTimeline periods={data} />}
