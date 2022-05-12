@@ -58,3 +58,10 @@ Gin server will be running on localhost:8080.
 - Gin Web Framework (<https://github.com/gin-gonic/gin>)
 - Noaa Go Library (<https://github.com/icodealot/noaa>)
 - Google Maps API Library (<https://github.com/googlemaps/google-maps-services-go>)
+
+## Todos
+
+- Unit / Integrations Tests
+- Consult a designer for my horrific layout
+- Animate the forecast timeline screen in order to make the current forecast more visually appealing
+- Set up docker / docker compose for easier deployment
