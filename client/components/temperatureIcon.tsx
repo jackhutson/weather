@@ -20,7 +20,10 @@ export const TemperatureIcon: FC<TemperatureIconProps> = (
   const { temperature } = props;
   return (
     <>
-      <FontAwesomeIcon icon={getIcon(temperature)} />
+      <FontAwesomeIcon
+        icon={getIcon(temperature)}
+        style={{ fontSize: '34px' }}
+      />
     </>
   );
 };

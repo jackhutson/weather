@@ -8,11 +8,15 @@ export type ForecastTimelineProps = {
 export const ForecastTimeline: FC<ForecastTimelineProps> = (props: ForecastTimelineProps) => {
   const { periods } = props;
 
-  const currentForecast = useMemo(() => periods ? periods[0] : null , [periods]);
-
-  const onNextClick = useCallback(() => { }, []);
-
   return (
-    <ForecastPeriod period={currentForecast} />
-  )
+      <div>
+        {periods && periods.length && (
+          <>
+          {periods.map((period, index) => (
+            <ForecastPeriod key={index} period={period} />
+          ))}
+          </>
+        )}
+      </div>
+  );
 }

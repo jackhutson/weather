@@ -25,7 +25,7 @@ export const ForecastIcon: FC<ForecastIconProps> = (
   const { shortForecast, isDaytime } = props;
   return (
     <>
-      <FontAwesomeIcon icon={getIcon(shortForecast, isDaytime)} />
+      <FontAwesomeIcon icon={getIcon(shortForecast, isDaytime)} style={{ fontSize: '80px' }}/>
     </>
   );
 };
