@@ -19,12 +19,12 @@ export const TemperatureIcon: FC<TemperatureIconProps> = (
 ) => {
   const { temperature } = props;
   return (
-    <>
+    <div className="mr-2">
       <FontAwesomeIcon
         icon={getIcon(temperature)}
         style={{ fontSize: '34px' }}
       />
-    </>
+    </div>
   );
 };
 

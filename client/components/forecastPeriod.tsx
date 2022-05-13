@@ -6,12 +6,13 @@ import { TemperatureIcon } from './temperatureIcon';
 
 export type ForecastPeriodProps = {
   period: Period | null;
+  isCelsius: boolean;
 };
 
 export const ForecastPeriod: FC<ForecastPeriodProps> = (
   props: ForecastPeriodProps
 ) => {
-  const { period } = props;
+  const { period, isCelsius } = props;
   return (
     <>
       {period && (
@@ -31,7 +32,10 @@ export const ForecastPeriod: FC<ForecastPeriodProps> = (
           </div>
           <div className="self-end justify-self-end mb-4">
             <TemperatureIcon temperature={period.temperature} />
-            {period.temperature}
+            {isCelsius
+              ? convertToCelsius(period.temperature)
+              : period.temperature}{' '}
+            &deg; {isCelsius ? 'C' : 'F'}
           </div>
           <div className="col-span-full text-sm">
             <ForecastWind
@@ -52,6 +56,9 @@ export const ForecastPeriod: FC<ForecastPeriodProps> = (
     </>
   );
 };
+
+const convertToCelsius = (farenheit: number): number =>
+  Math.round((farenheit - 32) * (5 / 9));
 
 const getTimeFrame = (startTime: string, endTime: string): string => {
   const startDate = new Date(startTime);
